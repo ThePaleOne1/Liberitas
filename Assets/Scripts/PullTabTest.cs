@@ -14,6 +14,8 @@ public class PullTabTest : MonoBehaviour
 	[SerializeField] private GameObject Tab;
 	private bool startedSwitch = false;
 
+	Animator anim;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -45,7 +47,9 @@ public class PullTabTest : MonoBehaviour
 						if (startedSwitch == false)
 						{
 							Debug.Log("Pulled Out");
-							hit.transform.Translate(Vector3.left * Time.deltaTime * distance);
+							anim = hit.transform.gameObject.GetComponent<Animator>();
+							anim.SetBool("IsPulled", true);
+							//hit.transform.Translate(Vector3.left * Time.deltaTime * distance);
 							Invoke("pink", 0.4f);
 							startedSwitch = true;
 						}
@@ -64,7 +68,9 @@ public class PullTabTest : MonoBehaviour
 						if (startedSwitch == false)
 						{
 							Debug.Log("Pulled In");
-							hit.transform.Translate(Vector3.right * Time.deltaTime * distance);
+							anim = hit.transform.gameObject.GetComponent<Animator>();
+							anim.SetBool("IsPulled", false);
+							//hit.transform.Translate(Vector3.right * Time.deltaTime * distance);
 							Invoke("yellow", 0.4f);
 							startedSwitch = true;
 						}
@@ -86,5 +92,4 @@ public class PullTabTest : MonoBehaviour
 		Tab.tag = yellowTag;
 		startedSwitch = false;
 	}
-
 }
