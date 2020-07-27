@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sp.transform.localScale = Vector3.one * Size * (1 - (transform.position.y/sizeScale));
+        //sp.transform.localScale = Vector3.one * Size * (1 - (transform.position.y/sizeScale));
 
 
 
