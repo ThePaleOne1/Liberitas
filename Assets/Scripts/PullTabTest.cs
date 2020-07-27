@@ -40,7 +40,7 @@ public class PullTabTest : MonoBehaviour
 				if (selectionRenderer != null)
 				{
 					selectionRenderer.material = highlightMaterial;
-					if (Input.GetMouseButtonDown(1))
+					if (Input.GetMouseButtonDown(0))
 					{
 						if (startedSwitch == false)
 						{
@@ -59,7 +59,7 @@ public class PullTabTest : MonoBehaviour
 				if (selectionRenderer != null)
 				{
 					selectionRenderer.material = highlightMaterial;
-					if (Input.GetMouseButtonDown(1))
+					if (Input.GetMouseButtonDown(0))
 					{
 						if (startedSwitch == false)
 						{
