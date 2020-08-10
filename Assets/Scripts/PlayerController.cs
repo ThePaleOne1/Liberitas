@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
         //if (hit.collider != null)
         //{
-            targetObject.transform.position = target;
+            //targetObject.transform.position = target;
         //}
     }
 }
