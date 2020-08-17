@@ -8,6 +8,7 @@ TagManager:
   - pink
   - PullTab
   - Walkable
+  - Flame
   layers:
   - Default
   - TransparentFX
