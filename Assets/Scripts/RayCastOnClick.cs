@@ -13,6 +13,8 @@ public class RayCastOnClick : MonoBehaviour
     public bool HasFlame = false;
     GameObject heldFlame;
     public GameObject player;
+
+    [SerializeField] float InteractDistance = 0.5f;
    
 
         
@@ -29,7 +31,8 @@ public class RayCastOnClick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log($"Tag Testing: {ObjectTag.Walkable.ToString()}, {ObjectTag.PullTab.ToString()}");
+        //Debug.Log($"Tag Testing: {ObjectTag.Walkable.ToString()}, {ObjectTag.PullTab.ToString()}");
+        player = MyGameManager.GM.Player;
     }
 
     // Update is called once per frame
@@ -42,13 +45,14 @@ public class RayCastOnClick : MonoBehaviour
             //store some information about the raycast hit
             HitPosition = hit.point;
             HitObject = hit.transform.gameObject;
-            
+
 
 
             //check what the tag of the hit was so we know what to do
             //whenever we add something new to click, 
             //just make a new tag and add any functionality in this big "else if" statement
             //make sure to leave the very last "else" statement so that we can catch anything thats not in yet
+            print(HitObject.tag);
             if(HitObject.tag == ObjectTag.PullTab.ToString()) // pull tab
             {
                 Toggleable tog = HitObject.GetComponent<Toggleable>();
@@ -56,8 +60,19 @@ public class RayCastOnClick : MonoBehaviour
                 {
                     if (tog.IsActive)
                     {
-                        Animator anim = HitObject.GetComponent<Animator>();
-                        anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
+                        if (!tog.Inverted)
+                        {
+                            Animator anim = HitObject.GetComponent<Animator>();
+                            anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
+                        }
+                    }
+                    else
+                    {
+                        if (tog.Inverted)
+                        {
+                            Animator anim = HitObject.GetComponent<Animator>();
+                            anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
+                        }
                     }
                 }
                 else
@@ -70,28 +85,16 @@ public class RayCastOnClick : MonoBehaviour
             }
             else if (HitObject.tag == ObjectTag.Walkable.ToString() || HitObject.tag == ObjectTag.Untagged.ToString())
             {
-                PlayerWalkTarget.transform.position = HitPosition;
+                WalkToCursor(HitPosition);
             }
             else if(HitObject.tag == ObjectTag.Candle.ToString())
             {
-                if (HasFlame && heldFlame != null)
-                {
-                    heldFlame.transform.position = HitObject.transform.position;
-                    heldFlame.transform.parent = HitObject.transform;
-
-                    heldFlame.GetComponent<candle>().SetTabActive();
-                }
+                WalkToCursor(HitObject.transform.parent.position);
+                StartCoroutine(WalkToInteract(HitObject));
             }
             else if(HitObject.tag == ObjectTag.Flame.ToString())
             {
-                if (!HasFlame)
-                {
-                    heldFlame = HitObject;
-                    heldFlame.transform.position = player.transform.position;
-                    heldFlame.transform.parent = player.transform;
-
-                    heldFlame.GetComponent<candle>().SetTabInactive();
-                }
+                
             }
             else
             {
@@ -100,6 +103,40 @@ public class RayCastOnClick : MonoBehaviour
             }
 
 
+        }
+    }
+
+
+    IEnumerator WalkToInteract(GameObject obj)
+    {
+        yield return new WaitUntil(() => CheckDistanceForInteract(obj));
+        if (HitObject != obj) yield break;
+        obj.GetComponent<Interactable>().Interact();
+
+    }
+    public bool CheckDistanceForInteract(GameObject obj)
+    {
+        if(Vector2.Distance(MyGameManager.GM.InteractCenter.transform.position, obj.transform.position) < InteractDistance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void WalkToCursor(Vector3 position)
+    {
+        PlayerWalkTarget.transform.position = position;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        if (MyGameManager.GM.InteractCenter != null)
+        {
+            Gizmos.DrawWireSphere(MyGameManager.GM.InteractCenter.transform.position, InteractDistance);
         }
     }
 }

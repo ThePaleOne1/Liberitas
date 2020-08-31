@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class FontBackObject : MonoBehaviour
 {
-    public GameObject player;
+    
 
-    public int backLayer = 5;
-    public int frontLayer = 15;
+    public int backLayer = -10;
+    public int frontLayer = 10;
 
     SpriteRenderer sp;
+
+    public float offset = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class FontBackObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y <= player.transform.position.y)
+        if (transform.position.y + offset <= MyGameManager.GM.Player.transform.position.y)
         {
             sp.sortingOrder = frontLayer;
         }
@@ -27,5 +29,11 @@ public class FontBackObject : MonoBehaviour
         {
             sp.sortingOrder = backLayer;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawIcon(new Vector3( transform.position.x,transform.position.y + offset, transform.position.z), "F/B Offset",true);
     }
 }

@@ -10,34 +10,63 @@ public class PlayerController : MonoBehaviour
     public float sizeScale = 0.5f;
 
     SpriteRenderer sp;
-
+    Animator anim;
+    
+    Pathfinding.AIPath AI;
 
     public GameObject targetObject;
     Vector3 target;
 
     RaycastHit2D hit;
-    // Start is called before the first frame update
+
+    public GameObject fire;
+
     void Start()
     {
         sp = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        AI = transform.parent.GetComponent<Pathfinding.AIPath>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //sp.transform.localScale = Vector3.one * Size * (1 - (transform.position.y/sizeScale));
+        
 
-
-
-        if (Input.GetMouseButtonDown(0))
+        if (MyGameManager.GM.IsHoldingFlame)
         {
-            hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero);
-            target = hit.point;
+            fire.SetActive(true);
+        }
+        else
+        {
+            fire.SetActive(false);
         }
 
-        //if (hit.collider != null)
+
+
+        if (AI.velocity.magnitude > 0.1f)
+        {
+            anim.SetBool("IsWalking", true);
+        }
+        else
+        {
+            anim.SetBool("IsWalking", false);
+        }
+
+        if(AI.velocity.x > 0)
+        {
+            sp.flipX = true;
+        }
+        else if(AI.velocity.x < 0)
+        {
+            sp.flipX = false;
+        }
+
+        //if (Input.GetMouseButtonDown(0))
         //{
-            //targetObject.transform.position = target;
+        //    hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero);
+        //    target = hit.point;
         //}
+
     }
 }

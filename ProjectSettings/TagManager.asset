@@ -9,6 +9,7 @@ TagManager:
   - PullTab
   - Walkable
   - Flame
+  - Candle
   layers:
   - Default
   - TransparentFX
