@@ -40,11 +40,15 @@ public class RayCastOnClick : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) //when you click
         {
-            hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero); //perform a raycast
-            
-            //store some information about the raycast hit
-            HitPosition = hit.point;
-            HitObject = hit.transform.gameObject;
+            //hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero); //perform a raycast
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 30))
+            {
+                //store some information about the raycast hit
+                HitPosition = hit.point;
+                HitObject = hit.transform.gameObject;
+            }
 
 
 
