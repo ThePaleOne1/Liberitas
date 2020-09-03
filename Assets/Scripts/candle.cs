@@ -8,12 +8,14 @@ public class candle : Interactable
     public GameObject flame;
     public bool isLit = false;
 
-    
+    AudioSource aSource;
+    public AudioClip Ignite;
+    public AudioClip PutOut;
     
     // Start is called before the first frame update
     void Start()
     {
-          
+        aSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,12 +61,13 @@ public class candle : Interactable
             {
                 print("candle is already lit");
             }
-            else            //is holding flame cand candle is not lit
+            else            //is holding flame and candle is not lit
             {
                 print("Lit the candle");
                 ActivateToggleables(true);
                 isLit = true;
                 MyGameManager.GM.IsHoldingFlame = false;
+                aSource.PlayOneShot(Ignite);
             }
             return;
         }
@@ -75,7 +78,9 @@ public class candle : Interactable
                 print("you took the fire from the candle");
                 ActivateToggleables(false);
                 isLit = false;
-                MyGameManager.GM.IsHoldingFlame = true; 
+                MyGameManager.GM.IsHoldingFlame = true;
+                aSource.PlayOneShot(PutOut);
+
             }
             else            //is not holdign flame and candle is not lit
             {
