@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public float LoadDelay = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +18,28 @@ public class MainMenuScript : MonoBehaviour
         
     }
 
+    
+
 	public void GameStart()
 	{
-		SceneManager.LoadScene(1);
+        Invoke("LoadThing", LoadDelay);
 	}
 
-	public void QuitGame()
+    private void LoadThing()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void QuitGame()
 	{
-		Application.Quit();
-		Debug.Log("quit game");
-	}
+        Invoke("QuitThing", LoadDelay);
 
+    }
+
+    private void QuitThing()
+    {
+        Application.Quit();
+        Debug.Log("quit game");
+    }
 
 }
