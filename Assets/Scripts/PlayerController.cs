@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     RaycastHit2D hit;
 
     public GameObject fire;
+    public GameObject RealFire;
 
     public AudioClip[] WoodFootSteps;
     AudioSource aSource;
@@ -42,10 +43,12 @@ public class PlayerController : MonoBehaviour
         if (MyGameManager.GM.IsHoldingFlame)
         {
             fire.SetActive(true);
+            RealFire.SetActive(true);
         }
         else
         {
             fire.SetActive(false);
+            RealFire.SetActive(false);
         }
 
         if (timer < 0)
