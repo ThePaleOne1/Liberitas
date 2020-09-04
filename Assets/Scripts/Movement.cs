@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KiarnyTestScript : MonoBehaviour
+public class Movement : MonoBehaviour
 {
 	public float speed = 1f;
 
