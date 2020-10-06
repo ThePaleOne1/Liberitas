@@ -137,10 +137,6 @@ public class RayCastOnClick : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        if (MyGameManager.GM.InteractCenter != null)
-        {
-            Gizmos.DrawWireSphere(MyGameManager.GM.InteractCenter.transform.position, InteractDistance);
-        }
+        
     }
 }
