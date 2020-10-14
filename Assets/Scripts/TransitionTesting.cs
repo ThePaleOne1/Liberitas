@@ -26,5 +26,7 @@ public class TransitionTesting : MonoBehaviour
         {
             material.mainTexture = rendTex;
         }
+
+        
     }
 }

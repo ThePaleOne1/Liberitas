@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PageLibrary : MonoBehaviour
+public class PageLibrary : Interactable
 {
 	//Keeping track of the page
 	public int currentPage = 0;
@@ -17,16 +17,17 @@ public class PageLibrary : MonoBehaviour
 
 	//Debugging the raycast
 	public Material highlightMaterial;
-	public Material defaultMaterial; 
+	public Material defaultMaterial;
 
 	// Start is called before the first frame update
 	void Start()
-    {
+	{
 
-    }
+	}
 
-    // Update is called once per frame
-    void Update()
+
+	// Update is called once per frame
+	void Update()
 	{
 		if (_raycaster != null)
 		{
@@ -47,6 +48,7 @@ public class PageLibrary : MonoBehaviour
 					selectionRenderer.material = highlightMaterial; //currently not set up to change colour back
 					if (Input.GetMouseButtonDown(0))
 					{
+						
 						if (hit.transform.gameObject == pageIncrease[currentPage])
 						{
 							Invoke("Increase", 0);
