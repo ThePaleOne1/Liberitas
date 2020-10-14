@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: 09b553e7dcfcc2944945bfd67e92cfdb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7280449038257098981
+    second: Back Walk Cycle_0
+  - first:
+      213: 4698233069633697833
+    second: Back Walk Cycle_1
+  - first:
+      213: 3017303580077990251
+    second: Back Walk Cycle_2
+  - first:
+      213: 409148386977943685
+    second: Back Walk Cycle_3
+  - first:
+      213: -4137856708846447107
+    second: Back Walk Cycle_4
+  - first:
+      213: 8273138100822296804
+    second: Back Walk Cycle_5
+  - first:
+      213: -3694968436000504449
+    second: Back Walk Cycle_6
+  - first:
+      213: -6847434964906738215
+    second: Back Walk Cycle_7
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Back Walk Cycle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed04bd034a81fea43b878861d318a74c
+      internalID: 7280449038257098981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Walk Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f335ff285b4c146ad758fd29022e6f
+      internalID: 4698233069633697833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Walk Cycle_2
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6372a65bada20c2459afb7267da5fc34
+      internalID: 3017303580077990251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Walk Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 3798
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180b0ede4e5fb104f9aca0d89973e3ae
+      internalID: 409148386977943685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Walk Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 5064
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2716eaa41a95d1e42a3099607dd3b252
+      internalID: -4137856708846447107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Walk Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 6330
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aef14406622d4d44857d40f7cede23b
+      internalID: 8273138100822296804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Walk Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 7596
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d31a6a51377953439c3c0c38bc12504
+      internalID: -3694968436000504449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Walk Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 8862
+        y: 0
+        width: 1266.5
+        height: 2347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3b65ca505150546ae3f3cea44c900b
+      internalID: -6847434964906738215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2228afc7f47fcad4fb31f200e9877d70
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
