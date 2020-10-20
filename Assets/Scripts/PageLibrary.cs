@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PageLibrary : Interactable
+public class PageLibrary : MonoBehaviour
 {
 	//Keeping track of the page
 	public int currentPage = 0;
 	public GameObject[] pageIncrease;
 	public GameObject[] pageDecrease;
-	//public GameObject[] totalPages;
+	public GameObject[] totalPages;
+	public int pageCount = 0;
+	public int arraySize = 3;
 
 	//Parameters for the raycast
 	private Transform _raycaster;
@@ -22,7 +24,13 @@ public class PageLibrary : Interactable
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		while (pageCount < arraySize)
+		{
+			pageIncrease[pageCount].AddComponent<AddInteractScript>();
+			pageDecrease[pageCount].AddComponent<AddInteractScript>();
+			++pageCount;
+			print(pageCount);
+		}
 	}
 
 
