@@ -20,12 +20,19 @@ public class PlayerController : MonoBehaviour
     RaycastHit2D hit;
 
     public GameObject fire;
+    public GameObject RealFire;
 
+    public AudioClip[] WoodFootSteps;
+    AudioSource aSource;
+
+    public float timer = 1;
+    public float FootstepDelay = 1;
     void Start()
     {
         sp = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         AI = transform.parent.GetComponent<Pathfinding.AIPath>();
+        aSource = GetComponent<AudioSource>();
     }
 
 
@@ -36,17 +43,26 @@ public class PlayerController : MonoBehaviour
         if (MyGameManager.GM.IsHoldingFlame)
         {
             fire.SetActive(true);
+            RealFire.SetActive(true);
         }
         else
         {
             fire.SetActive(false);
+            RealFire.SetActive(false);
         }
 
-
+        if (timer < 0)
+        {
+            timer = FootstepDelay;
+            aSource.PlayOneShot(WoodFootSteps[Random.Range(0, WoodFootSteps.Length - 1)]);
+        }
 
         if (AI.velocity.magnitude > 0.1f)
         {
             anim.SetBool("IsWalking", true);
+
+            timer -= Time.deltaTime;
+
         }
         else
         {

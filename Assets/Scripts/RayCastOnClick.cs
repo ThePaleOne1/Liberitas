@@ -25,7 +25,8 @@ public class RayCastOnClick : MonoBehaviour
         PullTab, 
         Exit, 
         Candle,
-        Flame
+        Flame,
+        Door
     }
 
     // Start is called before the first frame update
@@ -96,7 +97,7 @@ public class RayCastOnClick : MonoBehaviour
                 WalkToCursor(HitObject.transform.parent.position);
                 StartCoroutine(WalkToInteract(HitObject));
             }
-            else if(HitObject.tag == ObjectTag.Flame.ToString())
+            else if(HitObject.tag == ObjectTag.Door.ToString())
             {
                 
             }
@@ -135,12 +136,4 @@ public class RayCastOnClick : MonoBehaviour
         PlayerWalkTarget.transform.position = position;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        if (MyGameManager.GM.InteractCenter != null)
-        {
-            Gizmos.DrawWireSphere(MyGameManager.GM.InteractCenter.transform.position, InteractDistance);
-        }
-    }
 }
