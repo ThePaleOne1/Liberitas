@@ -35,7 +35,7 @@ public class TransitionTesting : MonoBehaviour
     }
 
 
-    void TakeScreenshot()
+    public void TakeScreenshot()
     {
         print("attempting to take screenshot");
         RenderTexture rt = new RenderTexture(resWidth, resHeight, 100);
