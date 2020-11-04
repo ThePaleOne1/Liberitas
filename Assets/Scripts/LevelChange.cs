@@ -70,6 +70,11 @@ public class LevelChange : MonoBehaviour
             CurrentLevel = 2;
             
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CurrentLevel = 3;
+
+        }
     }
 
     
@@ -105,10 +110,10 @@ public class LevelChange : MonoBehaviour
 
         Pages.SetActive(false);
         
-        //RenderTexture rt = new RenderTexture(resWidth, resHeight, 100);
+        RenderTexture rt = new RenderTexture(resWidth, resHeight, 100);
 
         
-        //RenderCamera.targetTexture = rt;
+        RenderCamera.targetTexture = rt;
 
         screenshot = new Texture2D(resWidth, resHeight, TextureFormat.RGBA32, false);
 
