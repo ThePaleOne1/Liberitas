@@ -11,6 +11,10 @@ public class LevelChange : MonoBehaviour
     public GameObject[] Levels;
     public float[] PlayerScalePerLevel;
     public GameObject[] StartingPosPerLevel;
+
+    public SpriteRenderer BackPageSpriteRenderer;
+    public Sprite[] BackPages;
+
     [Range(1,4)]
     public int CurrentLevel = 1;
     int LevelCheck = 1;
@@ -110,6 +114,9 @@ public class LevelChange : MonoBehaviour
 
         Pages.SetActive(false);
         
+        BackPageSpriteRenderer.sprite = BackPages[CurrentLevel-1];
+        
+
         RenderTexture rt = new RenderTexture(resWidth, resHeight, 100);
 
         
