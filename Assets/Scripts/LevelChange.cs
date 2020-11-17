@@ -6,6 +6,9 @@ using UnityEngine.Windows;
 
 public class LevelChange : MonoBehaviour
 {
+    public AstarPath astarPath;
+    
+
     public GameObject player;
     public GameObject walkTarget;
     public GameObject[] Levels;
@@ -30,6 +33,9 @@ public class LevelChange : MonoBehaviour
     public int resHeight;
     public int resWidth;
 
+    public bool saveScreenshots = false;
+    public int i = 0;
+
     void Start()
     {
         Pages.SetActive(false);
@@ -40,12 +46,9 @@ public class LevelChange : MonoBehaviour
         
         print($"ON START\nCamera resolution: {RenderCamera.pixelWidth} x {RenderCamera.pixelHeight}\nVariableResolution: {resWidth} x {resHeight}");
 
-        //making sure that the game starts at level 1
-        foreach (GameObject level in Levels)
-        {
-            level.SetActive(false);
-        }
-        Levels[0].SetActive(true);
+        //making sure that the game starts at the level set in inspector
+        DisableAllLevels();
+        EnableCurrentLevel();
     }
 
     void Update()
@@ -59,7 +62,6 @@ public class LevelChange : MonoBehaviour
             //keep this at the very bottom of the If(){}
             LevelCheck = CurrentLevel;
         }
-
 
 
         //temporary level changing by pressing the number buttons. this will be deleted in the end product
@@ -77,6 +79,11 @@ public class LevelChange : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             CurrentLevel = 3;
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            CurrentLevel = 4;
 
         }
     }
@@ -99,10 +106,15 @@ public class LevelChange : MonoBehaviour
         Pages.SetActive(false);
         player.SetActive(true);
         
-        player.transform.localScale = new Vector2(PlayerScalePerLevel[CurrentLevel-1], PlayerScalePerLevel[CurrentLevel-1]);
-        player.GetComponent<AIPath>().Teleport(StartingPosPerLevel[CurrentLevel - 1].transform.position, true);
-        walkTarget.transform.position = StartingPosPerLevel[CurrentLevel - 1].transform.position;
-        
+        Vector3 startPos = StartingPosPerLevel[CurrentLevel - 1].transform.position;
+        float scale = PlayerScalePerLevel[CurrentLevel - 1];
+
+        player.transform.localScale = new Vector2(scale, scale);
+        player.GetComponent<AIPath>().Teleport(startPos, true);
+        walkTarget.transform.position = startPos;
+        player.GetComponent<AIPath>().SetPath(null);
+
+        astarPath.Scan();
     }
 
 
@@ -113,7 +125,8 @@ public class LevelChange : MonoBehaviour
 
 
         Pages.SetActive(false);
-        
+
+        BackPageSpriteRenderer.gameObject.SetActive(true);
         BackPageSpriteRenderer.sprite = BackPages[CurrentLevel-1];
         
 
@@ -126,7 +139,7 @@ public class LevelChange : MonoBehaviour
 
         RenderCamera.Render();
         RenderTexture.active = rt;
-        screenshot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+        screenshot.ReadPixels(new Rect(0, 0, 1280, 1280), 0, 0);
         screenshot.Apply();
         RenderCamera.targetTexture = null;
         RenderTexture.active = null;
@@ -134,11 +147,14 @@ public class LevelChange : MonoBehaviour
 
         // Encode texture into PNG
         byte[] bytes = screenshot.EncodeToPNG();
-        
+
 
         // For testing purposes, also write to a file in the project folder
-        File.WriteAllBytes(Application.dataPath + "/screenshots/SavedScreen.png", bytes);
-
+        if (saveScreenshots)
+        {
+            File.WriteAllBytes(Application.dataPath + $"/screenshots/Screenshot{i}.png", bytes);
+            i++;
+        }
 
         print("attempting to put screenshot into material");
 
@@ -146,5 +162,8 @@ public class LevelChange : MonoBehaviour
         PageSkinnedMeshRenderer.material.SetTexture("_MainTex", screenshot);
 
         Pages.SetActive(true);
+        BackPageSpriteRenderer.gameObject.SetActive(false);
+
     }
+
 }
