@@ -58,45 +58,31 @@ public class RayCastOnClick : MonoBehaviour
             //just make a new tag and add any functionality in this big "else if" statement
             //make sure to leave the very last "else" statement so that we can catch anything thats not in yet
             print(HitObject.tag);
-            if(HitObject.tag == ObjectTag.PullTab.ToString()) // pull tab
+            //if pull tab
+            if(HitObject.tag == ObjectTag.PullTab.ToString()) 
             {
                 Toggleable tog = HitObject.GetComponent<Toggleable>();
                 if( tog != null)
                 {
                     if (tog.IsActive)
                     {
-                        if (!tog.Inverted)
-                        {
-                            Animator anim = HitObject.GetComponent<Animator>();
-                            anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
-                        }
+                        Animator anim = HitObject.GetComponent<Animator>();
+                        anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
                     }
-                    else
-                    {
-                        if (tog.Inverted)
-                        {
-                            Animator anim = HitObject.GetComponent<Animator>();
-                            anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
-                        }
-                    }
-                }
-                else
-                {
-                    Animator anim = HitObject.GetComponent<Animator>();
-                    anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
-                }
-
-                
+                }                
             }
+            //if walkable terrain
             else if (HitObject.tag == ObjectTag.Walkable.ToString() || HitObject.tag == ObjectTag.Untagged.ToString())
             {
                 WalkToCursor(HitPosition);
             }
+            //if candle
             else if(HitObject.tag == ObjectTag.Candle.ToString())
             {
                 WalkToCursor(HitObject.transform.parent.position);
                 StartCoroutine(WalkToInteract(HitObject));
             }
+            //if door
             else if(HitObject.tag == ObjectTag.Door.ToString())
             {
                 
@@ -104,7 +90,7 @@ public class RayCastOnClick : MonoBehaviour
             else
             {
                 //use this to catch anything that we forgot to put in
-                Debug.Log($"Hit object with tag '{HitObject.tag}'... This tag was not found in the RayCastOnClick() script");
+                Debug.LogWarning($"Hit object with tag '{HitObject.tag}'... This tag was not found in the RayCastOnClick() script");
             }
 
 
