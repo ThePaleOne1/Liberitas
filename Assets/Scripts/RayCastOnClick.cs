@@ -44,7 +44,7 @@ public class RayCastOnClick : MonoBehaviour
             //hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero); //perform a raycast
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 30))
+            if (Physics.Raycast(ray, out hit, 100))
             {
                 //store some information about the raycast hit
                 HitPosition = hit.point;
@@ -57,7 +57,7 @@ public class RayCastOnClick : MonoBehaviour
             //whenever we add something new to click, 
             //just make a new tag and add any functionality in this big "else if" statement
             //make sure to leave the very last "else" statement so that we can catch anything thats not in yet
-            print(HitObject.tag);
+            print(HitObject.tag + "\n" + HitObject.name);
             //if pull tab
             if(HitObject.tag == ObjectTag.PullTab.ToString()) 
             {
