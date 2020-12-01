@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 /// <summary>
 /// THIS IS A STATIC OBJECT TO STORE GLOBAL VARIABLES!!! 
@@ -11,6 +12,7 @@ using UnityEngine;
 /// </summary>
 public class MyGameManager : MonoBehaviour
 {
+    public PostProcessVolume PPV;
     public bool IsHoldingFlame;
     public GameObject Player;
     public GameObject InteractCenter;
@@ -29,5 +31,16 @@ public class MyGameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    private void Update()
+    {
+        if (IsHoldingFlame)
+        {
+            PPV.enabled = false;
+        }
+        else
+        {
+            PPV.enabled = true;
+        }
+    }
 
 }
