@@ -51,6 +51,7 @@ public class LevelChange : MonoBehaviour
         //making sure that the game starts at the level set in inspector
         DisableAllLevels();
         EnableCurrentLevel();
+        
     }
 
     void Update()
@@ -111,7 +112,9 @@ public class LevelChange : MonoBehaviour
     {
         Levels[CurrentLevel - 1].SetActive(true);
         Pages.SetActive(false);
-        player.SetActive(true);
+        
+            player.SetActive(true);
+        
         
         Vector3 startPos = StartingPosPerLevel[CurrentLevel - 1].transform.position;
         float scale = PlayerScalePerLevel[CurrentLevel - 1];
@@ -178,6 +181,7 @@ public class LevelChange : MonoBehaviour
 	public void StartGame()
 	{
 		CurrentLevel = 2;
+        player.SetActive(true);
 	}
 
 	public void QuitGame()
