@@ -8,6 +8,9 @@ public class LevelChange : MonoBehaviour
 {
     public AstarPath astarPath;
 
+    public AudioSource BackgroundAudioSource;
+    public AudioClip[] BackgroundMusic;
+    
 
     public GameObject player;
     public GameObject walkTarget;
@@ -110,6 +113,8 @@ public class LevelChange : MonoBehaviour
 
     public void EnableCurrentLevel()
     {
+        //BackgroundAudioSource.clip = (BackgroundMusic[CurrentLevel - 1]);
+
         Levels[CurrentLevel - 1].SetActive(true);
         Pages.SetActive(false);
         

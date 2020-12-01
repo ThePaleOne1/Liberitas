@@ -15,7 +15,7 @@ public class RayCastOnClick : MonoBehaviour
     GameObject heldFlame;
     public GameObject player;
 
-    [SerializeField] float InteractDistance = 0.5f;
+    [SerializeField] float InteractDistance = 1;
    
 
         
@@ -86,8 +86,11 @@ public class RayCastOnClick : MonoBehaviour
             //if door
             else if(HitObject.tag == ObjectTag.Door.ToString())
             {
-				WalkToCursor(HitPosition);
+                
+				WalkToCursor(HitObject.transform.position);
+                
 				StartCoroutine(WalkToInteract(HitObject));
+                
 			}
             else
             {
@@ -104,8 +107,11 @@ public class RayCastOnClick : MonoBehaviour
     {
         if (PlayerCanWalk)
         {
+            print("waiting until player has walked towards object");
             yield return new WaitUntil(() => CheckDistanceForInteract(obj));
+            print("is close enough to object");
             if (HitObject != obj) yield break;
+            print("near object, triggering interact");
             obj.GetComponent<Interactable>().Interact();
         }
     }
@@ -113,10 +119,12 @@ public class RayCastOnClick : MonoBehaviour
     {
         if(Vector2.Distance(MyGameManager.GM.InteractCenter.transform.position, obj.transform.position) < InteractDistance)
         {
+            //print($"disctance check: {Vector2.Distance(MyGameManager.GM.InteractCenter.transform.position, obj.transform.position)} Close enough" );
             return true;
         }
         else
         {
+            //print($"disctance check: {Vector2.Distance(MyGameManager.GM.InteractCenter.transform.position, obj.transform.position)} not close enough");
             return false;
         }
     }

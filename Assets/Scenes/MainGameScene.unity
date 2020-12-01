@@ -2338,7 +2338,7 @@ MonoBehaviour:
   PlayerWalkTarget: {fileID: 1597141828}
   HasFlame: 0
   player: {fileID: 1235315608}
-  InteractDistance: 0.74
+  InteractDistance: 1
 --- !u!81 &327345685
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4117,6 +4117,7 @@ Transform:
   m_LocalScale: {x: 1.6836331, y: 1.6844283, z: 1}
   m_Children:
   - {fileID: 667435669}
+  - {fileID: 1259686377}
   m_Father: {fileID: 1869525367}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
@@ -7653,6 +7654,152 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1259686376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1259686377}
+  - component: {fileID: 1259686379}
+  - component: {fileID: 1259686378}
+  m_Layer: 0
+  m_Name: DoorZone
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1259686377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259686376}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.05, y: 0.44, z: 0}
+  m_LocalScale: {x: 0.59367335, y: 0.5939537, z: 1}
+  m_Children: []
+  m_Father: {fileID: 679401147}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1259686378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259686376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9109323, y: 4.140574, z: 1}
+  m_Center: {x: -0.10999996, y: 1.3037255, z: 0}
+--- !u!114 &1259686379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259686376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086ade341f852e44297bec4586eb7aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  lvlChange: {fileID: 1993455277}
+--- !u!1 &1266922427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266922428}
+  - component: {fileID: 1266922432}
+  - component: {fileID: 1266922431}
+  - component: {fileID: 1266922430}
+  - component: {fileID: 1266922429}
+  m_Layer: 0
+  m_Name: DoorZone (1)
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1266922428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266922427}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -2.64, y: 3.37, z: 0}
+  m_LocalScale: {x: 0.59395295, y: 0.5936725, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1529909450}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1266922429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266922427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9334018, y: 0.8442489, z: 1}
+  m_Center: {x: -0.32, y: 0.49956626, z: 0}
+--- !u!65 &1266922430
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266922427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9334018, y: 0.57144886, z: 1}
+  m_Center: {x: 1.24, y: -0.43683332, z: 0}
+--- !u!65 &1266922431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266922427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9334018, y: 1.2761809, z: 1}
+  m_Center: {x: 0.37876523, y: -0.1284721, z: 0}
+--- !u!114 &1266922432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266922427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086ade341f852e44297bec4586eb7aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 1
+  lvlChange: {fileID: 1993455277}
 --- !u!1 &1276277172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8149821039361591234, guid: 3fbbcfffd2974144fbbcbb1583fa675b,
@@ -8015,7 +8162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1381508345
 Transform:
   m_ObjectHideFlags: 0
@@ -14112,6 +14259,7 @@ Transform:
   m_LocalScale: {x: 1.683635, y: 1.6844302, z: 1}
   m_Children:
   - {fileID: 582070938}
+  - {fileID: 1266922428}
   m_Father: {fileID: 1649522192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
@@ -14132,7 +14280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1534201732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14917,7 +15065,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611956292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 2.2, z: 0}
+  m_LocalPosition: {x: -0.1, y: 1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1235315612}
@@ -17184,6 +17332,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   astarPath: {fileID: 786121194}
+  BackgroundAudioSource: {fileID: 97647342}
+  BackgroundMusic:
+  - {fileID: 8300000, guid: d959c217d79b7944ba7d0059cff43f5d, type: 3}
+  - {fileID: 8300000, guid: 5a62e8f047cf79b4e8b297fe4596c6f3, type: 3}
+  - {fileID: 8300000, guid: 09cc3fd008b25cc4ca02f9bff4c2c477, type: 3}
+  - {fileID: 8300000, guid: 1525588b6152b88458d9b3b6241f8e0d, type: 3}
+  - {fileID: 8300000, guid: af661f8fd9817f04c9de09b8af964af0, type: 3}
   player: {fileID: 1235315608}
   walkTarget: {fileID: 1597141828}
   Levels:
