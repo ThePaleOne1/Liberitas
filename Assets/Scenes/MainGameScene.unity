@@ -14280,7 +14280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1534201732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17348,7 +17348,7 @@ MonoBehaviour:
   - {fileID: 1534201731}
   - {fileID: 1909051110}
   PlayerScalePerLevel:
-  - 0.1
+  - 0
   - 0.5
   - 0.3
   - 0.2
