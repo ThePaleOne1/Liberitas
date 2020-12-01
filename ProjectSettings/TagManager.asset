@@ -10,6 +10,7 @@ TagManager:
   - Walkable
   - Flame
   - Candle
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,7 @@ public class LevelChange : MonoBehaviour
     public SpriteRenderer BackPageSpriteRenderer;
     public Sprite[] BackPages;
 
-    [Range(1,4)]
+    [Range(1,5)]
     public int CurrentLevel = 1;
     int LevelCheck = 1;
 
@@ -86,7 +86,12 @@ public class LevelChange : MonoBehaviour
             CurrentLevel = 4;
 
         }
-    }
+		if (Input.GetKeyDown(KeyCode.Alpha5))
+		{
+			CurrentLevel = 5;
+
+		}
+	}
 
     
     public void DisableAllLevels()
@@ -166,4 +171,8 @@ public class LevelChange : MonoBehaviour
 
     }
 
+	public void StartGame()
+	{
+		CurrentLevel = 1;
+	}
 }

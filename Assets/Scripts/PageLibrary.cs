@@ -10,7 +10,7 @@ public class PageLibrary : MonoBehaviour
 	public GameObject[] pageDecrease;
 	public GameObject[] totalPages;
 	public int pageCount = 0;
-	public int arraySize = 3;
+	public int arraySize;
 
 	//Parameters for the raycast
 	private Transform _raycaster;
@@ -21,9 +21,13 @@ public class PageLibrary : MonoBehaviour
 	public Material highlightMaterial;
 	public Material defaultMaterial;
 
+	//Debugging the while loops
+	public GameObject[] debugObjects;
+
 	// Start is called before the first frame update
 	void Start()
 	{
+		int arraySize = pageIncrease.Length;
 		while (pageCount < arraySize)
 		{
 			pageIncrease[pageCount].AddComponent<AddInteractScript>();
@@ -69,6 +73,18 @@ public class PageLibrary : MonoBehaviour
 				}
 				_raycaster = selection;
 			}
+		}
+		while (currentPage == 0)
+		{
+			debugObjects[currentPage].SetActive(true);
+		}
+		while (currentPage == 1)
+		{
+			debugObjects[currentPage].SetActive(true);
+		}
+		while (currentPage == 2)
+		{
+			debugObjects[currentPage].SetActive(true);
 		}
 	}
 

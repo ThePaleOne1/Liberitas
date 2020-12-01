@@ -14,8 +14,10 @@ public class MyGameManager : MonoBehaviour
     public bool IsHoldingFlame;
     public GameObject Player;
     public GameObject InteractCenter;
+	public bool DoorOneOpen;
 
-    public static MyGameManager GM;
+
+	public static MyGameManager GM;
 
     void Awake()
     {

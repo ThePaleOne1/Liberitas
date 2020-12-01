@@ -85,8 +85,9 @@ public class RayCastOnClick : MonoBehaviour
             //if door
             else if(HitObject.tag == ObjectTag.Door.ToString())
             {
-                
-            }
+				WalkToCursor(HitPosition);
+				StartCoroutine(WalkToInteract(HitObject));
+			}
             else
             {
                 //use this to catch anything that we forgot to put in
