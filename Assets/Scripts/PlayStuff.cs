@@ -56,4 +56,9 @@ public class PlayStuff : MonoBehaviour
     {
         lanternTracker.ToggleLight(lightsToToggle);
     }
+
+    public void SetLevelToFour()
+    {
+        lvlChange.CurrentLevel = 5;
+    }
 }
