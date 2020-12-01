@@ -13,6 +13,7 @@ public class Door : Interactable
 
 	public Animator anim;
 
+	public LevelChange lvlChange;
 
 	// Start is called before the first frame update
 	void Start()
@@ -39,6 +40,7 @@ public class Door : Interactable
 		if (MyGameManager.GM.DoorOneOpen)
 		{
 			print("Door opened");
+			lvlChange.CurrentLevel = 3;
 			return;
 		}
 		else
@@ -47,5 +49,7 @@ public class Door : Interactable
 			return;
 		}
 	}
+
+
 
 }
