@@ -7,7 +7,7 @@ using UnityEngine.Windows;
 public class LevelChange : MonoBehaviour
 {
     public AstarPath astarPath;
-    
+
 
     public GameObject player;
     public GameObject walkTarget;
@@ -18,7 +18,9 @@ public class LevelChange : MonoBehaviour
     public SpriteRenderer BackPageSpriteRenderer;
     public Sprite[] BackPages;
 
-    [Range(1,4)]
+    public bool[] IsFlameLitOnStart;
+
+    [Range(1,5)]
     public int CurrentLevel = 1;
     int LevelCheck = 1;
 
@@ -109,10 +111,12 @@ public class LevelChange : MonoBehaviour
         Vector3 startPos = StartingPosPerLevel[CurrentLevel - 1].transform.position;
         float scale = PlayerScalePerLevel[CurrentLevel - 1];
 
-        player.transform.localScale = new Vector2(scale, scale);
+        player.transform.localScale = new Vector3(scale, scale, 1);
         player.GetComponent<AIPath>().Teleport(startPos, true);
         walkTarget.transform.position = startPos;
         player.GetComponent<AIPath>().SetPath(null);
+
+        MyGameManager.GM.IsHoldingFlame = IsFlameLitOnStart[CurrentLevel - 1];
 
         astarPath.Scan();
     }

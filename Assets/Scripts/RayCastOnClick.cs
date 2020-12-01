@@ -8,6 +8,7 @@ public class RayCastOnClick : MonoBehaviour
     Vector2 HitPosition = Vector2.zero;
     GameObject HitObject;
 
+    public bool PlayerCanWalk = false;
     public GameObject PlayerWalkTarget;
 
     public bool HasFlame = false;
@@ -100,10 +101,12 @@ public class RayCastOnClick : MonoBehaviour
 
     IEnumerator WalkToInteract(GameObject obj)
     {
-        yield return new WaitUntil(() => CheckDistanceForInteract(obj));
-        if (HitObject != obj) yield break;
-        obj.GetComponent<Interactable>().Interact();
-
+        if (PlayerCanWalk)
+        {
+            yield return new WaitUntil(() => CheckDistanceForInteract(obj));
+            if (HitObject != obj) yield break;
+            obj.GetComponent<Interactable>().Interact();
+        }
     }
     public bool CheckDistanceForInteract(GameObject obj)
     {
@@ -119,7 +122,10 @@ public class RayCastOnClick : MonoBehaviour
 
     private void WalkToCursor(Vector3 position)
     {
-        PlayerWalkTarget.transform.position = position;
+        if (PlayerCanWalk)
+        {
+            PlayerWalkTarget.transform.position = position;
+        }
     }
 
 }
