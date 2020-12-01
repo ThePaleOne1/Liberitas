@@ -177,6 +177,11 @@ public class LevelChange : MonoBehaviour
 
 	public void StartGame()
 	{
-		CurrentLevel = 1;
+		CurrentLevel = 2;
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
 	}
 }
