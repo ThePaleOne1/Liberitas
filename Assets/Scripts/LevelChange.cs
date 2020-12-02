@@ -114,7 +114,8 @@ public class LevelChange : MonoBehaviour
 
     public void EnableCurrentLevel()
     {
-        //BackgroundAudioSource.clip = (BackgroundMusic[CurrentLevel - 1]);
+        BackgroundAudioSource.clip = (BackgroundMusic[CurrentLevel - 1]);
+        BackgroundAudioSource.Play();
 
         Levels[CurrentLevel - 1].SetActive(true);
         Pages.SetActive(false);
@@ -188,12 +189,15 @@ public class LevelChange : MonoBehaviour
 	{
 		CurrentLevel = 2;
         player.SetActive(true);
-	}
+        FindObjectOfType<RayCastOnClick>().PlayerCanWalk = false;
+
+    }
 
     public void GoToPage(int pageNumber)
     {
         CurrentLevel = pageNumber;
         player.SetActive(true);
+        FindObjectOfType<RayCastOnClick>().PlayerCanWalk = true;
     }
 
 	public void QuitGame()

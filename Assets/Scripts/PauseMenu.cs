@@ -5,23 +5,26 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
 
-	public GameObject PauseUI;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetButtonDown("Cancel"))
-		{
-			print("hello up there");
-			PauseUI.SetActive(true);
-		}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
+        }
     }
 
 	
+    public void Continue()
+    {
+        anim.SetBool("IsTriggered", false);
+    }
 }
