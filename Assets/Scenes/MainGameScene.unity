@@ -815,6 +815,8 @@ GameObject:
   - component: {fileID: 97647343}
   - component: {fileID: 97647342}
   - component: {fileID: 97647345}
+  - component: {fileID: 97647346}
+  - component: {fileID: 97647347}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -831,7 +833,8 @@ AudioSource:
   m_GameObject: {fileID: 97647341}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 7cc210a9421f397418ed6fcecd8a59b1,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 0c120fa08c311f04fa22e422b2b54cf2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.31
@@ -962,6 +965,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelChange: {fileID: 0}
+--- !u!114 &97647346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97647341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6f6fceda0560f488255a4d022a5a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hovered: {fileID: 8300000, guid: c078cd1a16512fa4c84175604d11d8e9, type: 3}
+  Clicked: {fileID: 8300000, guid: b015fc0cee3f3684d808af57dc72cbd7, type: 3}
+  ClickRelease: {fileID: 0}
+--- !u!114 &97647347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97647341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817064af12f04024cb65490b4a33eabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadDelay: 1.5
 --- !u!4 &106589512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1556128174743442971, guid: 1eef8575dc9641e4f85a6196151b85f5,
@@ -2460,6 +2491,8 @@ MonoBehaviour:
   PlayerWalkTarget: {fileID: 1597141828}
   HasFlame: 0
   player: {fileID: 1235315608}
+  aSource: {fileID: 97647342}
+  tabAudio: {fileID: 8300000, guid: 29d56817fbf124c4ca553ad496c06835, type: 3}
   InteractDistance: 1
 --- !u!81 &327345685
 AudioListener:
@@ -4491,6 +4524,7 @@ GameObject:
   - component: {fileID: 679401143}
   - component: {fileID: 679401141}
   - component: {fileID: 679401142}
+  - component: {fileID: 679401148}
   m_Layer: 0
   m_Name: Tab1_2
   m_TagString: PullTab
@@ -4726,6 +4760,21 @@ Transform:
   m_Father: {fileID: 1869525367}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &679401148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679401140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0abfece61adbc4095e2e39d9aedac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aSource: {fileID: 97647342}
+  doorOpen: {fileID: 8300000, guid: 3fd5e01476e722847a7821812fd13c2d, type: 3}
+  doorOpening: 0
 --- !u!1 &719569053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1556128175354545983, guid: 1eef8575dc9641e4f85a6196151b85f5,
@@ -4944,6 +4993,7 @@ GameObject:
   - component: {fileID: 747970813}
   - component: {fileID: 747970812}
   - component: {fileID: 747970811}
+  - component: {fileID: 747970814}
   m_Layer: 0
   m_Name: Start Button
   m_TagString: Untagged
@@ -5025,6 +5075,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 97647346}
+        m_MethodName: PlayClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &747970812
@@ -5065,6 +5126,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747970809}
   m_CullTransparentMesh: 0
+--- !u!114 &747970814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747970809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 97647346}
+          m_MethodName: PlayHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &753101433
 GameObject:
   m_ObjectHideFlags: 0
@@ -17318,7 +17409,7 @@ GameObject:
   - component: {fileID: 1711509295}
   - component: {fileID: 1711509294}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Menu UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17859,6 +17950,7 @@ GameObject:
   - component: {fileID: 1802056255}
   - component: {fileID: 1802056254}
   - component: {fileID: 1802056253}
+  - component: {fileID: 1802056256}
   m_Layer: 0
   m_Name: Quit Button
   m_TagString: Untagged
@@ -17928,7 +18020,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1802056254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 97647347}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 97647346}
+        m_MethodName: PlayClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1802056254
@@ -17969,6 +18083,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802056251}
   m_CullTransparentMesh: 0
+--- !u!114 &1802056256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802056251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 97647346}
+          m_MethodName: PlayHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1818966299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1556128175354545983, guid: 1eef8575dc9641e4f85a6196151b85f5,
@@ -18879,6 +19023,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 09cc3fd008b25cc4ca02f9bff4c2c477, type: 3}
   - {fileID: 8300000, guid: 1525588b6152b88458d9b3b6241f8e0d, type: 3}
   - {fileID: 8300000, guid: af661f8fd9817f04c9de09b8af964af0, type: 3}
+  flipAudio: {fileID: 8300000, guid: 620858d82d9a3234e9692edce8ad0a18, type: 3}
   player: {fileID: 1235315608}
   walkTarget: {fileID: 1597141828}
   Levels:

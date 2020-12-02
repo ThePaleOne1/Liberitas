@@ -15,7 +15,10 @@ public class RayCastOnClick : MonoBehaviour
     GameObject heldFlame;
     public GameObject player;
 
-    [SerializeField] float InteractDistance = 1;
+	public AudioSource aSource;
+	public AudioClip tabAudio;
+
+	[SerializeField] float InteractDistance = 1;
 
     Coroutine lastCoroutine;
         
@@ -72,7 +75,9 @@ public class RayCastOnClick : MonoBehaviour
                     {
                         Animator anim = HitObject.GetComponent<Animator>();
                         anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
-                    }
+						aSource.PlayOneShot(tabAudio);
+
+					}
                 }                
             }
             //if walkable terrain

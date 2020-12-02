@@ -10,7 +10,7 @@ public class LevelChange : MonoBehaviour
 
     public AudioSource BackgroundAudioSource;
     public AudioClip[] BackgroundMusic;
-    
+	public AudioClip flipAudio;
 
     public GameObject player;
     public GameObject walkTarget;
@@ -65,7 +65,8 @@ public class LevelChange : MonoBehaviour
         {
             Pages.SetActive(true);
             PageAnim.SetTrigger("Flip");
-            //keep this at the very bottom of the If(){}
+			//keep this at the very bottom of the If(){}
+			BackgroundAudioSource.PlayOneShot(flipAudio);
             LevelCheck = CurrentLevel;
         }
 

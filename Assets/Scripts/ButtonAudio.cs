@@ -24,7 +24,7 @@ public class ButtonAudio : MonoBehaviour
         aSource.PlayOneShot(Hovered);
     }
 
-    public void Playclicked()
+    public void PlayClicked()
     {
         aSource.PlayOneShot(Clicked);
     }
