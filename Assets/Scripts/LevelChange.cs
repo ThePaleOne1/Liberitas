@@ -167,11 +167,11 @@ public class LevelChange : MonoBehaviour
 
 
         // For testing purposes, also write to a file in the project folder
-        if (saveScreenshots)
-        {
-            File.WriteAllBytes(Application.dataPath + $"/screenshots/Screenshot{i}.png", bytes);
-            i++;
-        }
+        //if (saveScreenshots)
+        //{
+        //    File.WriteAllBytes(Application.dataPath + $"/screenshots/Screenshot{i}.png", bytes);
+        //    i++;
+        //}
 
         print("attempting to put screenshot into material");
 
