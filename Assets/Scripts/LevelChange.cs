@@ -189,6 +189,12 @@ public class LevelChange : MonoBehaviour
         player.SetActive(true);
 	}
 
+    public void GoToPage(int pageNumber)
+    {
+        CurrentLevel = pageNumber;
+        player.SetActive(true);
+    }
+
 	public void QuitGame()
 	{
 		Application.Quit();
