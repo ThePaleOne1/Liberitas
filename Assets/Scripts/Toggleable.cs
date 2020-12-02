@@ -7,42 +7,33 @@ public class Toggleable : MonoBehaviour
     public bool IsActive = false;
     public bool Inverted = false;
 
-    public Sprite ActiveObj;
-    public Sprite InactiveObj;
 
-    SpriteRenderer sp;
-    // Start is called before the first frame update
-    void Start()
-    {
-        sp = GetComponent<SpriteRenderer>();
-    }
+    public Bookmark bookmark;
 
-    // Update is called once per frame
+
     void Update()
     {
         if (!Inverted)
         {
             if (IsActive)
             {
-                sp.sprite = ActiveObj;
+                bookmark.ActivateTab();
             }
             else
             {
-                sp.sprite = InactiveObj;
+                bookmark.DeactivateTab();
             }
         }
         else
         {
             if (IsActive)
             {
-                sp.sprite = InactiveObj;
+                bookmark.ActivateTab();
             }
             else
             {
-                sp.sprite = ActiveObj;
+                bookmark.DeactivateTab();
             }
         }
-        
     }
-
 }
