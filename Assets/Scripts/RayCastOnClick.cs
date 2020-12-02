@@ -16,8 +16,8 @@ public class RayCastOnClick : MonoBehaviour
     public GameObject player;
 
     [SerializeField] float InteractDistance = 1;
-   
 
+    Coroutine lastCoroutine;
         
     public enum ObjectTag
     {
@@ -53,14 +53,17 @@ public class RayCastOnClick : MonoBehaviour
             }
 
 
+            //print(HitObject.tag + "\n" + HitObject.name);
+
+
 
             //check what the tag of the hit was so we know what to do
             //whenever we add something new to click, 
             //just make a new tag and add any functionality in this big "else if" statement
             //make sure to leave the very last "else" statement so that we can catch anything thats not in yet
-            print(HitObject.tag + "\n" + HitObject.name);
+
             //if pull tab
-            if(HitObject.tag == ObjectTag.PullTab.ToString()) 
+            if (HitObject.tag == ObjectTag.PullTab.ToString()) 
             {
                 Toggleable tog = HitObject.GetComponent<Toggleable>();
                 if( tog != null)
@@ -81,15 +84,18 @@ public class RayCastOnClick : MonoBehaviour
             else if(HitObject.tag == ObjectTag.Candle.ToString())
             {
                 WalkToCursor(HitObject.transform.parent.position);
-                StartCoroutine(WalkToInteract(HitObject));
+
+                if (lastCoroutine != null) StopCoroutine(lastCoroutine);
+                lastCoroutine = StartCoroutine(WalkToInteract(HitObject));
             }
             //if door
             else if(HitObject.tag == ObjectTag.Door.ToString())
             {
                 
 				WalkToCursor(HitObject.transform.position);
-                
-				StartCoroutine(WalkToInteract(HitObject));
+
+                if(lastCoroutine != null) StopCoroutine(lastCoroutine);
+				lastCoroutine = StartCoroutine(WalkToInteract(HitObject));
                 
 			}
             else
@@ -107,11 +113,11 @@ public class RayCastOnClick : MonoBehaviour
     {
         if (PlayerCanWalk)
         {
-            print("waiting until player has walked towards object");
+            //print("waiting until player has walked towards object");
             yield return new WaitUntil(() => CheckDistanceForInteract(obj));
-            print("is close enough to object");
+            //print("is close enough to object");
             if (HitObject != obj) yield break;
-            print("near object, triggering interact");
+            //print("near object, triggering interact");
             obj.GetComponent<Interactable>().Interact();
         }
     }
