@@ -69,11 +69,11 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsWalking", false);
         }
 
-        if(AI.velocity.x > 0)
+        if(AI.velocity.x >= 0.1)
         {
             sp.flipX = true;
         }
-        else if(AI.velocity.x < 0)
+        else if(AI.velocity.x < -0.1)
         {
             sp.flipX = false;
         }

@@ -9,7 +9,8 @@ public class Toggleable : MonoBehaviour
 
 
     public Bookmark bookmark;
-    
+
+
 
 
     void Update()

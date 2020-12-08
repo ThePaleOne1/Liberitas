@@ -7,6 +7,7 @@ public class candle : Interactable
     public Toggleable[] ToggleObjects;
     public GameObject flame;
     public bool isLit = false;
+    public bool LitOnStart = false;
 
     AudioSource aSource;
     public AudioClip Ignite;
@@ -15,7 +16,14 @@ public class candle : Interactable
     // Start is called before the first frame update
     void Start()
     {
+        
         aSource = GetComponent<AudioSource>();
+    }
+
+    private void OnEnable()
+    { 
+        isLit = LitOnStart;
+        ActivateToggleables(isLit);
     }
 
     // Update is called once per frame
