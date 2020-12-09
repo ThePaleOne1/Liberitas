@@ -6764,7 +6764,7 @@ GameObject:
   - component: {fileID: 869104977}
   m_Layer: 0
   m_Name: Telescope
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6792,9 +6792,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 869104975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83f9c4a0badeb2e48beaf3df6ebb8452, type: 3}
+  m_Script: {fileID: 11500000, guid: 086ade341f852e44297bec4586eb7aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 1
+  lvlChange: {fileID: 1993455277}
 --- !u!65 &869104978
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9239,7 +9241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1201368621
 Transform:
   m_ObjectHideFlags: 0
@@ -16698,7 +16700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1534201732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20784,6 +20786,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 21a2f7f2b2d1d3a4aa3e901377fd3611, type: 3}
   - {fileID: 8300000, guid: 1cb5a191b74dc014f94b6356c741445b, type: 3}
   - {fileID: 8300000, guid: 5409dc88d7334ae4792fc13bc754eb9c, type: 3}
+  - {fileID: 8300000, guid: 5409dc88d7334ae4792fc13bc754eb9c, type: 3}
   flipAudio: {fileID: 8300000, guid: 620858d82d9a3234e9692edce8ad0a18, type: 3}
   player: {fileID: 1235315608}
   walkTarget: {fileID: 1597141828}
@@ -20793,12 +20796,14 @@ MonoBehaviour:
   - {fileID: 1381508344}
   - {fileID: 1534201731}
   - {fileID: 1909051110}
+  - {fileID: 1201368620}
   PlayerScalePerLevel:
   - 0
   - 0.5
   - 0.3
   - 0.2
   - 0.5
+  - 0
   StartingPosPerLevel:
   - {fileID: 1302483758}
   - {fileID: 1919571512}
@@ -20812,7 +20817,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 90fe78130bb9d15428e1c94b3d46e402, type: 3}
   - {fileID: 21300000, guid: 886fc0af062bd8c429530d36ca8ce643, type: 3}
   - {fileID: 21300000, guid: d63d83d2aa8f4e14f846f18693ea69bc, type: 3}
-  IsFlameLitOnStart: 0000010101
+  - {fileID: 21300000, guid: a146e71dbd2f0e144a11f6c6885bb946, type: 3}
+  IsFlameLitOnStart: 000101010001
   CurrentLevel: 1
   PageAnim: {fileID: 1993455278}
   Pages: {fileID: 1276277172}

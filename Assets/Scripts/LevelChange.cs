@@ -23,7 +23,7 @@ public class LevelChange : MonoBehaviour
 
     public bool[] IsFlameLitOnStart;
 
-    [Range(1,5)]
+    [Range(1,6)]
     public int CurrentLevel = 1;
     int LevelCheck = 1;
 
