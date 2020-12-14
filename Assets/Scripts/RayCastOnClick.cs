@@ -21,6 +21,8 @@ public class RayCastOnClick : MonoBehaviour
 	[SerializeField] float InteractDistance = 1;
 
     Coroutine lastCoroutine;
+
+    bool VirtualClick = false;
         
     public enum ObjectTag
     {
@@ -30,7 +32,8 @@ public class RayCastOnClick : MonoBehaviour
         Exit, 
         Candle,
         Flame,
-        Door
+        Door,
+        Tutorial
     }
 
     // Start is called before the first frame update
@@ -43,8 +46,12 @@ public class RayCastOnClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //when you click
+        if (Input.GetMouseButtonDown(0) || VirtualClick) //when you click
         {
+            VirtualClick = false;
+
+            HitObject = null;
+            HitPosition = Vector2.zero;
             //hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero); //perform a raycast
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -56,7 +63,7 @@ public class RayCastOnClick : MonoBehaviour
             }
 
 
-            //print(HitObject.tag + "\n" + HitObject.name);
+            print(HitObject.tag + "\n" + HitObject.name);
 
 
 
@@ -88,6 +95,7 @@ public class RayCastOnClick : MonoBehaviour
             //if candle
             else if(HitObject.tag == ObjectTag.Candle.ToString())
             {
+               
                 WalkToCursor(HitObject.transform.parent.position);
 
                 if (lastCoroutine != null) StopCoroutine(lastCoroutine);
@@ -103,13 +111,19 @@ public class RayCastOnClick : MonoBehaviour
 				lastCoroutine = StartCoroutine(WalkToInteract(HitObject));
                 
 			}
+            //if tutorial piece
+            else if (HitObject.tag == ObjectTag.Tutorial.ToString())
+            {
+                HitObject.GetComponent<Interactable>().Interact();
+                VirtualClick = true;
+            }
             else
             {
                 //use this to catch anything that we forgot to put in
                 Debug.LogWarning($"Hit object with tag '{HitObject.tag}'... This tag was not found in the RayCastOnClick() script");
             }
 
-
+            
         }
     }
 

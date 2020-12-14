@@ -18,6 +18,7 @@ public class PlayStuff : MonoBehaviour
 
     public LanternTracker lanternTracker;
     public int[] lightsToToggle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,4 +62,6 @@ public class PlayStuff : MonoBehaviour
     {
         lvlChange.CurrentLevel = 5;
     }
+
+    
 }

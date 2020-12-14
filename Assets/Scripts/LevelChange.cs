@@ -118,6 +118,7 @@ public class LevelChange : MonoBehaviour
         BackgroundAudioSource.Play();
 
         Levels[CurrentLevel - 1].SetActive(true);
+        //Levels[CurrentLevel - 1].transform.position = Vector3.zero;
         Pages.SetActive(false);
         
             player.SetActive(true);

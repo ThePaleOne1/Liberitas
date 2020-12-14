@@ -10,32 +10,35 @@ public class Toggleable : MonoBehaviour
 
     public Bookmark bookmark;
 
-
-
-
     void Update()
     {
         if (!Inverted)
         {
             if (IsActive)
             {
+                bookmark.enabled = true;
                 bookmark.ActivateTab();
+               
             }
             else
             {
                 bookmark.DeactivateTab();
+                bookmark.enabled = false;
             }
         }
         else
         {
             if (IsActive)
             {
+                bookmark.enabled = true;
                 bookmark.ActivateTab();
             }
             else
             {
                 bookmark.DeactivateTab();
+                bookmark.enabled = false;
             }
         }
+
     }
 }
