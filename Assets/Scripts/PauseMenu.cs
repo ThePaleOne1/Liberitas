@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 
     Animator anim;
 
+	public AudioSource aSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,8 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             anim.SetBool("IsTriggered", !anim.GetBool("IsTriggered"));
+			aSource.Stop();
+			aSource.Play();
         }
     }
 
