@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonAudio : MonoBehaviour
 {
-    AudioSource aSource;
+    public AudioSource aSource;
     Button button;
 
     public AudioClip Hovered;
@@ -15,7 +15,7 @@ public class ButtonAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        aSource = GetComponent<AudioSource>();
+        //aSource = GetComponent<AudioSource>();
         button = GetComponent<Button>();
     }
 

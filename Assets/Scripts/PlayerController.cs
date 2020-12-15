@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public LevelChange lvlChange;
     
     public float Size = 1;
     public float sizeScale = 0.5f;
@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     public GameObject RealFire;
 
     public AudioClip[] WoodFootSteps;
+    public AudioClip[] RugFootSteps;
+    public AudioClip[] StreetPavementFootSteps;
+    public AudioClip[] StoneFloorFootSteps;
+    public AudioClip[] ObservatoryRoofFootSteps;
     AudioSource aSource;
 
     public float timer = 1;
@@ -54,7 +58,23 @@ public class PlayerController : MonoBehaviour
         if (timer < 0)
         {
             timer = FootstepDelay;
-            aSource.PlayOneShot(WoodFootSteps[Random.Range(0, WoodFootSteps.Length - 1)]);
+           
+
+            switch (lvlChange.CurrentLevel - 1)
+            {
+                case 1:
+                    aSource.PlayOneShot(WoodFootSteps[Random.Range(0, WoodFootSteps.Length - 1)]);
+                    break;
+                case 2:
+                    aSource.PlayOneShot(StreetPavementFootSteps[Random.Range(0, WoodFootSteps.Length - 1)]);
+                    break;
+                case 3:
+                    aSource.PlayOneShot(RugFootSteps[Random.Range(0, WoodFootSteps.Length - 1)]);
+                    break;
+                case 4:
+                    aSource.PlayOneShot(StoneFloorFootSteps[Random.Range(0, WoodFootSteps.Length - 1)]);
+                    break;
+            }
         }
 
         if (AI.velocity.magnitude > 0.1f)
@@ -78,11 +98,6 @@ public class PlayerController : MonoBehaviour
             sp.flipX = false;
         }
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.zero);
-        //    target = hit.point;
-        //}
 
     }
 }
